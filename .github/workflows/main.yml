@@ -45,7 +45,7 @@ jobs:
 
       - name: Update docker-compose.yml with new tag
         run: |
-          sed -i "s|image: ghcr.io/muhammad-awab/go-todo:.*|image: ghcr.io/muhammad-awab/go-todo:${{ env.SHORT_SHA }}|" docker-compose.yml
+          sed -i "s|image: ghcr.io/muhammad-awab/go-todo:.*|image: ghcr.io/muhammad-awab/go-todo:${{ env.SHORT_SHA }}|" docker-compose.yaml
 
       - name: Commit updated docker-compose.yml
         run: |
