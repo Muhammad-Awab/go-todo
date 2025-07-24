@@ -2,9 +2,9 @@ name: Docker CI/CD Pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 env:
   IMAGE_NAME: ghcr.io/muhammad-awab/go-todo
