@@ -10,6 +10,8 @@ services:
       MYSQL_DATABASE: gotodo
     ports:
       - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -32,3 +34,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
+volumes:
+  mysql_data:
+    driver: local
