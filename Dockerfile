@@ -4,7 +4,7 @@ FROM golang:1.21-alpine AS builder
 WORKDIR /app
 
 COPY go.mod go.sum ./
-COPY .env .env
+COPY .env.example .env
 
 RUN go mod download
 
