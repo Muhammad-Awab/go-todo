@@ -19,7 +19,7 @@ services:
       retries: 5
 
   app:
-    image: ghcr.io/muhammad-awab/go-todo:7170b70
+    image: ghcr.io/muhammad-awab/go-todo:021f994
     container_name: go-todo-app
     ports:
       - "4040:4040"
