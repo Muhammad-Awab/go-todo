@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: awab123@@
+      MYSQL_DATABASE: gotodo
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: ghcr.io/muhammad-awab/go-todo:latest
+    container_name: go-todo-app
+    ports:
+      - "4040:4040"
+    env_file:
+      - .env
+    environment:
+      - PORT=4040
+      - DB_HOST=my-mysql
+      - DB_USER=root
+      - DB_PASS=awab123@@
+      - DB_NAME=gotodo
+    depends_on:
+      db:
+        condition: service_healthy
