@@ -19,10 +19,7 @@ WORKDIR /app
 
 RUN apk add --no-cache bash netcat-openbsd
 
-# Copy binary
 COPY --from=builder /app/main .
-
-# Copy views and env
 COPY --from=builder /app/views ./views
 COPY --from=builder /app/.env .env
 
